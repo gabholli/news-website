@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export async function GET() {
     try {
-        const response = await axios.get('https://newsapi.org/v2/everything', {
+        const response = await axios.get('https://newsapi.org/v2/everything?q=keyword', {
             headers: {
                 Authorization: process.env.SOME_KEY,
             },

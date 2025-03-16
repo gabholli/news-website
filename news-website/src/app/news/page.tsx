@@ -17,7 +17,7 @@ export default function BreedList() {
                 setNewsData(response.data)
             })
             .catch((error) => {
-                console.log(error)
+                console.log("Error", error)
             })
             .finally(() => {
                 console.log("finally")
