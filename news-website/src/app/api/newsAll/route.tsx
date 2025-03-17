@@ -2,9 +2,9 @@ import axios from 'axios'
 
 export async function GET() {
     try {
-        const response = await axios.get('https://newsapi.org/v2/everything?q=keyword', {
+        const response = await axios.get('https://newsapi.org/v2/everything?q=election', {
             headers: {
-                Authorization: process.env.SOME_KEY,
+                'x-api-key': process.env.SOME_KEY,
             },
         })
 
@@ -13,4 +13,4 @@ export async function GET() {
         console.error(error);
         return new Response('Failed to fetch articles', { status: 500 })
     }
-} s
+}

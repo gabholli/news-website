@@ -4,12 +4,10 @@ import axios from "axios"
 import React, { useEffect, useState } from "react"
 import Link from "next/link"
 
-export default function BreedList() {
-    const [newsData, setNewsData] = useState([]);
+export default function Articles() {
+    const [newsData, setNewsData] = useState([])
 
     useEffect(() => {
-
-        // Fetch from local API route (not external API)
         axios
             .get("/api/newsAll")
             .then((response) => {
