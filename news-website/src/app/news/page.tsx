@@ -7,6 +7,8 @@ import { NewsArticle } from "../types/types"
 
 export default function Articles() {
     const [newsData, setNewsData] = useState<NewsArticle[]>([])
+    const [newsSource, setNewsSource] = useState("")
+    const [sortOption, setSortOption] = useState("publishDate")
 
     useEffect(() => {
         axios
@@ -23,13 +25,36 @@ export default function Articles() {
             })
     }, [])
 
-    console.log(newsData)
+    function handleSourceChange(e: React.ChangeEvent<HTMLSelectElement>) {
+        setNewsSource(e.target.value)
+    }
+
+    function handleSortChange(e: React.ChangeEvent<HTMLSelectElement>) {
+        setSortOption(e.target.value)
+    }
+
+    const uniqueSources = Array.from(
+        new Set(newsData.map((article) => article.source.name))
+    ).sort((a, b) => a.localeCompare(b))
+
+    const groupedSources: { [key: string]: string[] } = {}
+    uniqueSources.forEach(source => {
+        const firstLetter = source.charAt(0).toUpperCase()
+        if (!groupedSources[firstLetter]) {
+            groupedSources[firstLetter] = []
+        }
+        groupedSources[firstLetter].push(source)
+    })
 
     const sortedArticles = newsData?.sort((a, b) => {
         return a.publishedAt.localeCompare(b.publishedAt)
     })
 
-    const newsArticles = sortedArticles?.map(article => {
+    const filteredArticles = sortedArticles?.filter(article => (
+        newsSource ? article.source.name === newsSource : true
+    ))
+
+    const newsArticles = filteredArticles?.map(article => {
         return (
             <div key={article.title}>
                 <h1>{article.title}</h1>
@@ -40,6 +65,7 @@ export default function Articles() {
 
     return (
         <div>
+
             <main>
                 <div className="flex flex-col gap-y-8 p-6">
                     <h1
@@ -47,6 +73,20 @@ export default function Articles() {
                     >
                         News Articles(In Order of Publish Date):
                     </h1>
+                    <div className="flex justify-center">
+                        <select onChange={handleSourceChange} value={newsSource}>
+                            <option value="">Sort by source</option>
+                            {Object.keys(groupedSources).map((letter) => (
+                                <optgroup key={letter} label={letter}>
+                                    {groupedSources[letter].map((source) => (
+                                        <option key={source} value={source}>
+                                            {source}
+                                        </option>
+                                    ))}
+                                </optgroup>
+                            ))}
+                        </select>
+                    </div>
                     {newsArticles}
                 </div>
             </main>
