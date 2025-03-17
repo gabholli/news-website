@@ -3,6 +3,7 @@
 import axios from "axios"
 import React, { useEffect, useState } from "react"
 import { NewsArticle } from "../types/types"
+import Link from "next/link"
 
 export default function Articles() {
     const [newsData, setNewsData] = useState<NewsArticle[]>([])
@@ -51,8 +52,10 @@ export default function Articles() {
     const newsArticles = filteredArticles?.map(article => {
         return (
             <div key={article.title}>
-                <h1>{article.title}</h1>
-                <p>{article.source.name}</p>
+                <Link href={`/news/${article.title}`}>
+                    <h1>{article.title}</h1>
+                    <p>{article.source.name}</p>
+                </Link>
             </div>
         )
     })
