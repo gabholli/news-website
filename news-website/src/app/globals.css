@@ -1,1 +1,10 @@
 @import "tailwindcss";
+
+@theme {
+    --font-display: "Tinos", "serif";
+}
+
+@font-face {
+    font-family: Tinos;
+    src: url("/Tinos-Regular.ttf");
+}
