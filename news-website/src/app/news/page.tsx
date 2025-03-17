@@ -81,6 +81,7 @@ export default function Articles() {
                             ))}
                         </select>
                     </div>
+                    <hr></hr>
                     {newsArticles}
                 </div >
             </main >
