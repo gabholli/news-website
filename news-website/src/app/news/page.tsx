@@ -25,10 +25,15 @@ export default function Articles() {
 
     console.log(newsData)
 
-    const newsArticles = newsData?.map(article => {
+    const sortedArticles = newsData?.sort((a, b) => {
+        return a.publishedAt.localeCompare(b.publishedAt)
+    })
+
+    const newsArticles = sortedArticles?.map(article => {
         return (
-            <div>
+            <div key={article.title}>
                 <h1>{article.title}</h1>
+                <p>{article.source.name}</p>
             </div>
         )
     })
@@ -40,7 +45,7 @@ export default function Articles() {
                     <h1
                         className="text-center font-bold text-2xl"
                     >
-                        News Articles:
+                        News Articles(In Order of Publish Date):
                     </h1>
                     {newsArticles}
                 </div>
