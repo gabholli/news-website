@@ -14,7 +14,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className="font-serif"
+        className="font-serif bg-black text-white"
       >
         {children}
       </body>

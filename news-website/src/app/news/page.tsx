@@ -2,13 +2,11 @@
 
 import axios from "axios"
 import React, { useEffect, useState } from "react"
-import Link from "next/link"
 import { NewsArticle } from "../types/types"
 
 export default function Articles() {
     const [newsData, setNewsData] = useState<NewsArticle[]>([])
     const [newsSource, setNewsSource] = useState("")
-    const [sortOption, setSortOption] = useState("publishDate")
 
     useEffect(() => {
         axios
@@ -27,10 +25,6 @@ export default function Articles() {
 
     function handleSourceChange(e: React.ChangeEvent<HTMLSelectElement>) {
         setNewsSource(e.target.value)
-    }
-
-    function handleSortChange(e: React.ChangeEvent<HTMLSelectElement>) {
-        setSortOption(e.target.value)
     }
 
     const uniqueSources = Array.from(
@@ -74,7 +68,7 @@ export default function Articles() {
                         News Articles(In Order of Publish Date):
                     </h1>
                     <div className="flex justify-center">
-                        <select onChange={handleSourceChange} value={newsSource}>
+                        <select className="bg-black text-white" onChange={handleSourceChange} value={newsSource}>
                             <option value="">Sort by source</option>
                             {Object.keys(groupedSources).map((letter) => (
                                 <optgroup key={letter} label={letter}>
@@ -88,8 +82,8 @@ export default function Articles() {
                         </select>
                     </div>
                     {newsArticles}
-                </div>
-            </main>
-        </div>
+                </div >
+            </main >
+        </div >
     )
 }
