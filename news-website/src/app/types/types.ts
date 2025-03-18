@@ -12,7 +12,7 @@ export interface Article {
     title: string
 }
 
-export interface ArticleDetails {
+export interface ArticleDetailInterface {
     title: string
     description: string
     url: string

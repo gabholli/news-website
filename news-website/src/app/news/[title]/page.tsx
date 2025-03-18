@@ -1,7 +1,7 @@
 "use client"
 
 import Header from "@/app/components/Header"
-import { ArticleDetails } from "@/app/types/types"
+import { ArticleDetailInterface } from "@/app/types/types"
 import axios from "axios"
 import { useParams } from "next/navigation"
 import { useEffect, useState } from "react"
@@ -9,7 +9,7 @@ import { useEffect, useState } from "react"
 export default function ArticleDetails() {
     const params = useParams()
     const title = typeof params.title == "string" ? params.title : ""
-    const [articleDetail, setArticleDetail] = useState<ArticleDetails[]>([])
+    const [articleDetail, setArticleDetail] = useState<ArticleDetailInterface[]>([])
     console.log("ID from useParams:", title);
 
     useEffect(() => {
