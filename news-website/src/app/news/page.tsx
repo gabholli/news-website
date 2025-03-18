@@ -57,7 +57,9 @@ export default function Articles() {
 
     const newsArticles = filteredArticles?.map(article => {
         return (
-            <div key={article.title}>
+            <div key={article.title}
+                className="lg:text-xl"
+            >
                 <Link href={`/news/${encodeURIComponent(article.title)}`}>
                     <h1>{article.title}</h1>
                     <p>{article.source.name}</p>
@@ -72,7 +74,7 @@ export default function Articles() {
             <main>
                 <div className="flex flex-col gap-y-8 p-6">
                     <h1
-                        className="text-center font-bold text-2xl"
+                        className="text-center font-bold text-2xl lg:text-3xl xl:text-4xl"
                     >
                         Top Headlines(In Order of Publish Date):
                     </h1>
