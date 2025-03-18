@@ -52,7 +52,7 @@ export default function ArticleDetails() {
                 <br></br>
                 {article.content && <p className="indent-8">{article.content}</p>}
                 <br></br>
-                {article.url && <h1>Source: <Link
+                {article.url && <h1 className="text-center">Source: <Link
                     href={article.url}
                     className="underline"
                 >
