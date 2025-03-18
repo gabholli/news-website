@@ -8,10 +8,11 @@ import Link from "next/link"
 export default function Articles() {
     const [newsData, setNewsData] = useState<NewsArticle[]>([])
     const [newsSource, setNewsSource] = useState("")
+    const [search, setSearch] = useState("")
 
     useEffect(() => {
         axios
-            .get("/api/newsAll")
+            .get(`/api/newsAll?q=${search}`)
             .then((response) => {
                 console.log('Client received:', response.data);
                 setNewsData(response.data.articles)
@@ -22,10 +23,14 @@ export default function Articles() {
             .finally(() => {
                 console.log("finally")
             })
-    }, [])
+    }, [search])
 
     function handleSourceChange(e: React.ChangeEvent<HTMLSelectElement>) {
         setNewsSource(e.target.value)
+    }
+
+    function handleSearchChange(e: any) {
+        setSearch(e.target.value)
     }
 
     const uniqueSources = Array.from(
@@ -46,13 +51,14 @@ export default function Articles() {
     })
 
     const filteredArticles = sortedArticles?.filter(article => (
-        newsSource ? article.source.name === newsSource : true
+        newsSource ? article.source.name === newsSource : true &&
+            (search ? article.title.toLowerCase().includes(search.toLowerCase()) : true)
     ))
 
     const newsArticles = filteredArticles?.map(article => {
         return (
             <div key={article.title}>
-                <Link href={`/news/${article.title}`}>
+                <Link href={`/news/${encodeURIComponent(article.title)}`}>
                     <h1>{article.title}</h1>
                     <p>{article.source.name}</p>
                 </Link>
@@ -70,7 +76,7 @@ export default function Articles() {
                     >
                         News Articles(In Order of Publish Date):
                     </h1>
-                    <div className="flex justify-center">
+                    <div className="flex flex-col justify-center">
                         <select className="bg-black text-white" onChange={handleSourceChange} value={newsSource}>
                             <option value="">Sort by source</option>
                             {Object.keys(groupedSources).map((letter) => (
@@ -83,6 +89,15 @@ export default function Articles() {
                                 </optgroup>
                             ))}
                         </select>
+                        <input
+                            className="bg-black text-white"
+                            onChange={handleSearchChange}
+                            value={search}
+                            type="text"
+                            placeholder="Search for article..."
+                        >
+
+                        </input>
                     </div>
                     <hr></hr>
                     {newsArticles}

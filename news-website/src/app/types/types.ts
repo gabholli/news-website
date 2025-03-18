@@ -7,3 +7,7 @@ export interface NewsArticle {
     source: NewsSource
     publishedAt: string
 }
+
+export interface Article {
+    title: string
+}
