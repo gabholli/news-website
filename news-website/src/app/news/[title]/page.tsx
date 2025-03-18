@@ -35,17 +35,19 @@ export default function ArticleDetails() {
             <div className="flex flex-col justify-center items-center p-6 md:w-5/6"
                 key={article.title}
             >
-                <img
-                    src={article.urlToImage}
-                    alt="News image"
-                    className="mb-4 md:h-96 object-fit object-contain"
-                >
-                </img>
-                <h1 className="text-center">{article.title}</h1>
+                {article.urlToImage && (
+                    <img
+                        src={article.urlToImage}
+                        alt="News image"
+                        className="mb-4 md:h-96 object-fit object-contain"
+                    />
+                )
+                }
+                {article.title && <h1 className="text-center">{article.title}</h1>}
                 <br></br>
-                <h2 className="indent-8">{article.description}</h2>
+                {article.description && <h2 className="indent-8">{article.description}</h2>}
                 <br></br>
-                <p className="indent-8">{article.content}</p>
+                {article.content && <p className="indent-8">{article.content}</p>}
             </div>
         )
     })
