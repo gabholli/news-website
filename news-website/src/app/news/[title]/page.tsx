@@ -33,7 +33,7 @@ export default function ArticleDetails() {
 
     const articleDetails = filteredArticles?.map(article => {
         return (
-            <div className="flex flex-col justify-center items-center w-3/4 md:w-2/3 py-8"
+            <div className="flex flex-col justify-center items-center w-3/4 md:w-2/3 py-6"
                 key={article.title}
             >
                 {article.urlToImage && (
