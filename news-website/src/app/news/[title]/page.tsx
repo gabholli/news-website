@@ -43,11 +43,14 @@ export default function ArticleDetails() {
                     />
                 )
                 }
-                {article.title && <h1 className="text-center">{article.title}</h1>}
+                {article.title && <h1 className="text-center text-lg">{article.title}</h1>}
                 <br></br>
                 {article.description && <h2 className="indent-8">{article.description}</h2>}
                 <br></br>
                 {article.content && <p className="indent-8">{article.content}</p>}
+                <br></br>
+                {article.url && <h1>Source: {article.url}</h1>}
+
             </div>
         )
     })
