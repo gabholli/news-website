@@ -29,7 +29,7 @@ export default function Articles() {
         setNewsSource(e.target.value)
     }
 
-    function handleSearchChange(e: any) {
+    function handleSearchChange(e: React.ChangeEvent<HTMLInputElement>) {
         setSearch(e.target.value)
     }
 
@@ -51,8 +51,8 @@ export default function Articles() {
     })
 
     const filteredArticles = sortedArticles?.filter(article => (
-        newsSource ? article.source.name === newsSource : true &&
-            (search ? article.title.toLowerCase().includes(search.toLowerCase()) : true)
+        (newsSource ? article.source.name === newsSource : true) &&
+        (search ? article.title.toLowerCase().includes(search.toLowerCase()) : true)
     ))
 
     const newsArticles = filteredArticles?.map(article => {
@@ -76,8 +76,9 @@ export default function Articles() {
                     >
                         News Articles(In Order of Publish Date):
                     </h1>
-                    <div className="flex flex-col justify-center">
-                        <select className="bg-black text-white" onChange={handleSourceChange} value={newsSource}>
+                    <div className="flex flex-col justify-center items-center md:flex-row gap-x-4">
+                        <select className="bg-black text-white border-1 h-12 indent-2"
+                            onChange={handleSourceChange} value={newsSource}>
                             <option value="">Sort by source</option>
                             {Object.keys(groupedSources).map((letter) => (
                                 <optgroup key={letter} label={letter}>
@@ -90,13 +91,12 @@ export default function Articles() {
                             ))}
                         </select>
                         <input
-                            className="bg-black text-white"
+                            className="bg-black text-white border-1 h-12 indent-2"
                             onChange={handleSearchChange}
                             value={search}
                             type="text"
-                            placeholder="Search for article..."
+                            placeholder="Search for an article..."
                         >
-
                         </input>
                     </div>
                     <hr></hr>

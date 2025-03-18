@@ -11,3 +11,11 @@ export interface NewsArticle {
 export interface Article {
     title: string
 }
+
+export interface ArticleDetails {
+    title: string
+    description: string
+    url: string
+    urlToImage: string
+    content: string
+}
