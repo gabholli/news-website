@@ -10,7 +10,7 @@ export default function AboutPage() {
             </div>
             <main className="flex-grow flex flex-col justify-center items-center">
                 <h1 className="text-2xl">About this site:</h1>
-                <p className="w-96 text-xl">
+                <p className="md:w-96 text-xl">
                     This site shows news stories built using the NewsAPI.
                     The stories come from different sources and publications,
                     and are shown in order of release.
