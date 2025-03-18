@@ -76,7 +76,7 @@ export default function Articles() {
                     >
                         News Articles(In Order of Publish Date):
                     </h1>
-                    <div className="flex flex-col justify-center items-center md:flex-row gap-x-4">
+                    <div className="flex flex-col justify-center items-center md:flex-row gap-4">
                         <select className="bg-black text-white border-1 h-12 indent-2"
                             onChange={handleSourceChange} value={newsSource}>
                             <option value="">Sort by source</option>
