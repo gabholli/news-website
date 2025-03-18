@@ -3,6 +3,7 @@
 import Header from "@/app/components/Header"
 import { ArticleDetailInterface } from "@/app/types/types"
 import axios from "axios"
+import Link from "next/link"
 import { useParams } from "next/navigation"
 import { useEffect, useState } from "react"
 
@@ -49,7 +50,7 @@ export default function ArticleDetails() {
                 <br></br>
                 {article.content && <p className="indent-8">{article.content}</p>}
                 <br></br>
-                {article.url && <h1>Source: {article.url}</h1>}
+                {article.url && <h1>Source: <Link href={article.url}>{article.url}</Link></h1>}
 
             </div>
         )
