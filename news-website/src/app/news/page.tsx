@@ -74,10 +74,10 @@ export default function Articles() {
                     <h1
                         className="text-center font-bold text-2xl"
                     >
-                        News Articles(In Order of Publish Date):
+                        Election News(In Order of Publish Date):
                     </h1>
                     <div className="flex flex-col justify-center items-center md:flex-row gap-4">
-                        <select className="bg-black text-white border-1 h-12 indent-2"
+                        <select className="bg-black text-white border-1 h-12 indent-2 w-60"
                             onChange={handleSourceChange} value={newsSource}>
                             <option value="">Sort by source</option>
                             {Object.keys(groupedSources).map((letter) => (
@@ -91,7 +91,7 @@ export default function Articles() {
                             ))}
                         </select>
                         <input
-                            className="bg-black text-white border-1 h-12 indent-2"
+                            className="bg-black text-white border-1 h-12 indent-2 w-60"
                             onChange={handleSearchChange}
                             value={search}
                             type="text"
