@@ -14,6 +14,7 @@ export interface Article {
 
 export interface ArticleDetailInterface {
     title: string
+    author: string
     description: string
     url: string
     urlToImage: string
