@@ -13,7 +13,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <link rel="shortcut icon" type="image/x-icon" href="/newspaper.ico" />
+      <head>
+        <link rel="shortcut icon" type="image/x-icon" href="/newspaper.ico" />
+      </head>
       <body
         className="font-serif bg-black text-white"
       >
