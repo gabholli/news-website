@@ -26,7 +26,7 @@ export default function ArticleDetails() {
     }, [title])
 
     const filteredArticles = articleDetail?.filter((article: { title: string }) => (
-        article.title.toLowerCase().includes(decodeURIComponent(title).toLowerCase())
+        article.title.toLowerCase() === (decodeURIComponent(title).toLowerCase())
     ))
 
     console.log(filteredArticles)
