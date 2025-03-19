@@ -8,8 +8,8 @@ import { useParams } from "next/navigation"
 import { useEffect, useState } from "react"
 
 export default function ArticleDetails() {
-    const { title } = useParams()
-    // const title = typeof params.title == "string" ? params.title : ""
+    const params = useParams()
+    const title = typeof params.title == "string" ? params.title : ""
     const [articleDetail, setArticleDetail] = useState<ArticleDetailInterface[]>([])
     console.log("ID from useParams:", title);
 
