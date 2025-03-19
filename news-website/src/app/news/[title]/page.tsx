@@ -71,8 +71,6 @@ export default function ArticleDetails() {
             <Header />
             <main className="flex-grow flex justify-center items-center">
                 {articleDetails}
-                {articleDetails.length > 0 ? articleDetails : <p>No articles....</p>}
-
             </main>
         </div>
     )
