@@ -48,9 +48,9 @@ export default function ArticleDetails() {
                 <br></br>
                 {article.author && <h1>Author: {article.author}</h1>}
                 <br></br>
-                {article.description && <h2 className="indent-8">{article.description}</h2>}
+                {article.description && <h2 className="">{article.description}</h2>}
                 <br></br>
-                {article.content && <p className="indent-8">{article.content}</p>}
+                {article.content && <p className="">{article.content}</p>}
                 <br></br>
                 {article.url && <h1 className="text-center">Source: <Link
                     href={article.url}
