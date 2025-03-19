@@ -44,15 +44,15 @@ export default function ArticleDetails() {
                     />
                 )
                 }
-                {article.title && <h1 className="text-center text-2xl">{article.title}</h1>}
+                {article.title && <h1 className="text-center text-2xl md:text-3xl">{article.title}</h1>}
                 <br></br>
-                {article.author && <h1 className="text-xl">Author: {article.author}</h1>}
+                {article.author && <h1 className="text-xl md:text-2xl">Author: {article.author}</h1>}
                 <br></br>
-                {article.description && <h2 className="xl">{article.description}</h2>}
+                {article.description && <h2 className="text-xl md:text-2xl">{article.description}</h2>}
                 <br></br>
-                {article.content && <p className="xl">{article.content}</p>}
+                {article.content && <p className="text-xl md:text-2xl">{article.content}</p>}
                 <br></br>
-                {article.url && <h1 className="text-center text-xl">Source: <Link
+                {article.url && <h1 className="text-center text-xl md:text-2xl">Source: <Link
                     href={article.url}
                     className="underline break-all"
                 >
