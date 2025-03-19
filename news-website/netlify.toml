@@ -1,7 +1,7 @@
 [build]
-  base = "news-website"           # The folder containing your Next.js project
-  publish = ".next"    # Or use "next-app/.next" for SSR
-  command = "npm run build"   # Your build command, can be "yarn build" too
+  command = "npm run build"
+  publish = ".next"
+  functions = "netlify/functions"
 
 [[plugins]]
-package = "@netlify/plugin-nextjs"
+  package = "@netlify/plugin-nextjs"
