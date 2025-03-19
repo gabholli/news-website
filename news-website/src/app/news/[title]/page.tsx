@@ -46,7 +46,7 @@ export default function ArticleDetails() {
                 }
                 {article.title && <h1 className="text-center text-2xl md:text-3xl">{article.title}</h1>}
                 <br></br>
-                {article.author && <h1 className="text-xl md:text-2xl">Author: {article.author}</h1>}
+                {article.author && <h1 className="break-all text-xl md:text-2xl">Author: {article.author}</h1>}
                 <br></br>
                 {article.description && <h2 className="text-xl md:text-2xl">{article.description}</h2>}
                 <br></br>
