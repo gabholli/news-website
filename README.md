@@ -1,5 +1,5 @@
 # Project Title
-News Stories
+Top Headlines
 
 ## Description
 This project contains files for news articles
