@@ -58,7 +58,7 @@ export default function Articles() {
     const newsArticles = filteredArticles?.map(article => {
         return (
             <div key={article.title}
-                className="lg:text-xl"
+                className="lg:text-2xl"
             >
                 <Link
                     className="hover:underline"
