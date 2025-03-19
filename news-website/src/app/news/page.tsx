@@ -60,7 +60,9 @@ export default function Articles() {
             <div key={article.title}
                 className="lg:text-xl"
             >
-                <Link href={`/news/${encodeURIComponent(article.title)}`}>
+                <Link
+                    className="hover:underline"
+                    href={`/news/${encodeURIComponent(article.title)}`}>
                     <h1>{article.title}</h1>
                     <p>{article.source.name}</p>
                 </Link>
