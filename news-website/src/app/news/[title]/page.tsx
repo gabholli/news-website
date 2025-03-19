@@ -9,7 +9,7 @@ import { useEffect, useState } from "react"
 
 export default function ArticleDetails() {
     const params = useParams()
-    const title = typeof params.title == "string" ? params.title : ""
+    const title = typeof params?.title == "string" ? params.title : ""
     const [articleDetail, setArticleDetail] = useState<ArticleDetailInterface[]>([])
     console.log("ID from useParams:", title);
 
@@ -26,7 +26,7 @@ export default function ArticleDetails() {
     }, [title])
 
     const filteredArticles = articleDetail?.filter((article: { title: string }) => (
-        article.title.toLowerCase() === (decodeURIComponent(title).toLowerCase())
+        article?.title?.toLowerCase() === (decodeURIComponent(title).toLowerCase())
     ))
 
     console.log(filteredArticles)
@@ -62,6 +62,8 @@ export default function ArticleDetails() {
         )
     })
 
+
+
     return (
         <div
             className="flex flex-col justify-center min-h-dvh"
@@ -69,6 +71,8 @@ export default function ArticleDetails() {
             <Header />
             <main className="flex-grow flex justify-center items-center">
                 {articleDetails}
+                {articleDetails.length > 0 ? articleDetails : <p>No articles....</p>}
+
             </main>
         </div>
     )
