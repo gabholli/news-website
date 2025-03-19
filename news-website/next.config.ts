@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   env: {
     SOME_KEY: process.env.SOME_KEY, // Add your environment variable here
   },
+
 };
 
 export default nextConfig;
