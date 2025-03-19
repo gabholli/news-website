@@ -14,8 +14,6 @@ export default function ArticleDetails() {
     console.log("ID from useParams:", title);
 
     useEffect(() => {
-        if (!title) return
-
         axios
             .get(`/api/newsAll?q=${title}`)
             .then((response) => {
