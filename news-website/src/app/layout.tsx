@@ -15,7 +15,7 @@ export default function RootLayout({
     <html lang="en">
       <link rel="shortcut icon" type="image/x-icon" href="/globe.svg" />
       <body
-        className="font-serif bg-black text-white"
+        className="font-display bg-black text-white"
       >
         {children}
       </body>

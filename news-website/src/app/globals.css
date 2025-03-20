@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
 @theme {
-    --font-display: "Tinos", "serif";
+    --font-display: "Garamond", "serif";
 }
 
 @font-face {
     font-family: Tinos;
-    src: url("/Tinos-Regular.ttf");
+    src: url("/fonts/EBGaramond-VariableFont_wght.ttf");
 }
