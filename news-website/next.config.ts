@@ -5,11 +5,11 @@ const nextConfig: NextConfig = {
   env: {
     SOME_KEY: process.env.SOME_KEY, // Add your environment variable here
   },
-  {
-  "routes": [
-    { "src": "/_next/(.*)", "dest": "/_next/$1" }
-  ]
-}
+  async rewrites() {
+    return [
+      { source: "/_next/(.*)", destination: "/_next/$1" }, // Correct keys for source and destination
+    ];
+  },
 };
 
 export default nextConfig;
