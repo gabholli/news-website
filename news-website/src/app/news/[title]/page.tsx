@@ -19,6 +19,7 @@ export default function ArticleDetails() {
             .then((response) => {
                 setArticleDetail(response.data.articles)
                 console.log(response.data)
+                console.error("API Response:", response)
             })
             .catch((e) => {
                 console.error(e)
