@@ -9,9 +9,20 @@ export async function GET() {
             },
         })
 
-        return new Response(JSON.stringify(response.data), { status: 200 })
+        return new Response(JSON.stringify(response.data), {
+            status: 200,
+            headers: {
+                "Content-Type": "application/json",
+                "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+                "Pragma": "no-cache",
+                "Expires": "0",
+                "Surrogate-Control": "no-store"
+            }
+
+        })
     } catch (error) {
         console.error(error);
         return new Response('Failed to fetch articles', { status: 500 })
     }
 }
+a
