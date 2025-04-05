@@ -18,11 +18,9 @@ export async function GET() {
                 "Expires": "0",
                 "Surrogate-Control": "no-store"
             }
-
         })
     } catch (error) {
         console.error(error);
         return new Response('Failed to fetch articles', { status: 500 })
     }
 }
-a
