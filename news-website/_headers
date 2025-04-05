@@ -1,2 +1,2 @@
 /api/newsAll
-  Cache-Control: no-cache
+  Cache-Control: no-store
