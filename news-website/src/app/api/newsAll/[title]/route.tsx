@@ -12,6 +12,7 @@ export async function GET(req: NextRequest) {
         const response = await axios.get(`https://newsapi.org/v2/everything?q=${encodeURIComponent(title)}`, {
             headers: {
                 'x-api-key': process.env.VITE_SOME_KEY,
+                "Cache-Control": "no-cache"
             },
         });
 

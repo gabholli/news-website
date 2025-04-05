@@ -5,6 +5,7 @@ export async function GET() {
         const response = await axios.get('https://newsapi.org/v2/top-headlines?country=us', {
             headers: {
                 'x-api-key': process.env.SOME_KEY,
+                "Cache-Control": "no-cache"
             },
         })
 
