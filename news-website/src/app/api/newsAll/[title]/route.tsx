@@ -6,7 +6,7 @@ export async function GET(req: NextRequest) {
     const title = parts.pop()  // This will be a string or undefined.
 
     if (!title) {
-        return new Response('Breed ID is missing from the URL', { status: 400 })
+        return new Response('News ID is missing from the URL', { status: 400 })
     }
     try {
         const response = await axios.get(`https://newsapi.org/v2/everything?q=${encodeURIComponent(title)}`, {
@@ -19,6 +19,6 @@ export async function GET(req: NextRequest) {
         return new Response(JSON.stringify(response.data), { status: 200 })
     } catch (error) {
         console.error(error)
-        return new Response('Failed to fetch breed details', { status: 500 })
+        return new Response('Failed to fetch news details', { status: 500 })
     }
 }
